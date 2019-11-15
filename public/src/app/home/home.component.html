@@ -1,0 +1,21 @@
+<a [routerLink]="['/new']">Add an author</a>
+<div *ngIf="allAuthors" class = "mt-4">
+    <p class = "flavor">We have quotes by:</p>
+    <table class = "table table-striped col-sm-10 col-md-6 table-bordered">
+        <thead class = "font-weight-bold thead-light text-center">
+            <tr>
+                <td>Author</td>
+                <td>Actions available</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let author of allAuthors" class = "px-1">
+                <td class = "flavor pt-2">{{ author.name }}</td>
+                <td>
+                    <a [routerLink]="['/edit/',author._id]" class="btn px-5 mx-2 text-white options">Edit</a>
+                    <a (click)="Delete(author._id, i)" class="btn px-5 text-white options">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

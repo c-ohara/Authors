@@ -1,0 +1,12 @@
+<div *ngIf="valmessages.length > 0">
+    <p *ngFor="let message of valmessages">{{message}}</p>
+</div>
+<p class = "flavor">Edit an author:</p>
+<form *ngIf="currentAuthor" (submit)="EditAuthor()" class = "px-2 py-2 border border-dark col-sm-12 col-md-4">
+    <p class = "mb-2">Name: </p>
+    <input type="text" [(ngModel)]="currentAuthor.name" name="name" class = "d-block w-75 mb-2">
+    <div class = "d-flex justify-content-between w-75 px-3">
+        <a [routerLink]="['/']" class = "btn btn-primary px-1 text-white font-weight-bold mr-2">Cancel</a>
+        <input type="submit" class = "btn btn-primary px-1 text-white font-weight-bold" value = "Submit">
+    </div>
+</form>
